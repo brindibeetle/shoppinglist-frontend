@@ -1,0 +1,53 @@
+
+  input[type=button].plus {    
+    background: transparent url(/assets/images/plus.svg) no-repeat center center; 
+    background-size: contain;
+    cursor:pointer;
+    margin: 0 auto;
+    border: none;
+  }input[type=button].edit {    
+    background: transparent url(/assets/images/edit-2.svg) no-repeat center center; 
+    background-size: contain;
+    cursor:pointer;
+    margin: 0 auto;
+    border: none;
+  }
+  input[type=button].delete {    
+    background: transparent url(/assets/images/trash-2.svg) no-repeat center center; 
+    background-size: contain;
+    cursor:pointer;
+    margin: 0 auto;
+    border: none;
+  }
+  input[type=button].save {    
+    background: transparent url(/assets/images/save.svg) no-repeat center center; 
+    background-size: contain;
+    cursor:pointer;
+    margin: 0 auto;
+    border: none;
+  }
+  input[type=button].cancel {    
+    background: transparent url(/assets/images/rotate-ccw.svg) no-repeat center center; 
+    background-size: contain;
+    cursor:pointer;
+    margin: 0 auto;
+    border: none;
+  }
+          
+  .button-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    border: none;
+  }
+
+  .tdbutton {
+      width: 1%;
+  }
+
+  div.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px 0;
+    }

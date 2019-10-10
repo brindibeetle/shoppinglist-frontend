@@ -1,0 +1,39 @@
+<h1>The items</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Item</th>   <th scope="col">Description</th>    <th scope="col">Unit</th>
+        </tr>
+    </thead>
+
+    <tbody *ngFor="let item of items; index as i;">
+        <tr *ngIf="selectedLine != i" (dblclick)="selectAndEditLine(i)" (click)="selectLine(i)">
+            <td>{{item.name}}</td>  <td>{{item.description}}</td>   <td>{{item.unit}}</td>  
+        </tr>
+        <tr *ngIf="selectedLine == i && actionCurrent == 1" (dblclick)="selectAndEditLine(i)" class="table-primary"> <!-- SELECT -->
+            <td>{{item.name}}</td>  <td>{{item.description}}</td>   <td>{{item.unit}}</td>  
+        </tr>
+        <tr *ngIf="selectedLine == i && actionCurrent == 2" class="table-info"> <!-- EDIT -->
+            <td><input type="text" [(ngModel)]="item.name" required></td>  <td><input type="text" [(ngModel)]="item.description" required="required"></td>   
+            <td>
+                <select class="form-control" id="idem.unit" required [(ngModel)]="item.unit" >
+                    <option *ngFor="let unit of units" [value]="unit">{{unit}}</option>
+                </select>
+            </td>   
+        </tr>
+        <tr *ngIf="selectedLine == i && actionCurrent == 3" class="table-danger"> <!-- DELETE -->
+            <td>{{item.name}}</td>  <td>{{item.description}}</td>   <td>{{item.unit}}</td>  
+        </tr>
+    </tbody>
+</table>
+
+<div class="container">
+    <div *ngIf="actionCurrent == 0" class="button-wrapper btn btn-success"> <input type="button" class="plus" (click)="plus()"> </div>
+    <div *ngIf="actionCurrent > 0" class="button-wrapper btn btn-success"> <input type="button" class="cancel" (click)="cancel()"> </div>
+    <div *ngIf="actionCurrent == 1" class="button-wrapper btn btn-success"> <input type="button" class="edit" (click)="edit()"> </div>
+    <div *ngIf="actionCurrent == 1" class="button-wrapper btn btn-success"> <input type="button" class="delete" (click)="delete()"> </div>
+    <div *ngIf="actionCurrent == 2" class="button-wrapper btn btn-success"> <input type="button" class="save" (click)="save()"> </div>
+    <div *ngIf="actionCurrent == 3" class="button-wrapper btn btn-success"> <input type="button" class="save" (click)="saveDelete()"> </div>
+</div>
+
